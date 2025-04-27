@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Form Grader Settings & Onboarding</title>
+  <link rel="stylesheet" href="../frontend/build/static/css/main.4ac17dc1.css" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 520px; margin: 0 auto; padding: 2rem; background: #f6faff; }
+    h1 { color: #005fcc; }
+    .onboard-step { background: #fff; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    label { display: block; margin-top: 1rem; font-weight: 500; }
+    select, input[type=checkbox] { margin-top: 0.5rem; }
+    .save-btn { background: #005fcc; color: #fff; border: none; border-radius: 6px; padding: 10px 20px; font-weight: bold; cursor: pointer; margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to AI Form Grader!</h1>
+  <div class="onboard-step">
+    <h2>Get Started</h2>
+    <ol>
+      <li>Open Google Forms or Sheets and click the <b>AI Grader</b> button to launch the sidebar.</li>
+      <li>Import questions and responses automatically, or upload a CSV.</li>
+      <li>Review, grade, and export results—all with accessibility in mind!</li>
+    </ol>
+  </div>
+  <div class="onboard-step">
+    <h2>Settings</h2>
+    <form id="settings-form">
+      <label for="language">Language</label>
+      <select id="language" name="language">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="ar">العربية (Arabic)</option>
+        <option value="zh">中文 (Chinese)</option>
+      </select>
+      <label><input type="checkbox" id="darkmode" name="darkmode" /> Enable dark mode</label>
+      <label><input type="checkbox" id="highcontrast" name="highcontrast" /> Enable high contrast</label>
+      <label><input type="checkbox" id="onboarding" name="onboarding" checked /> Show onboarding on startup</label>
+      <button class="save-btn" type="submit">Save Settings</button>
+    </form>
+  </div>
+  <div class="onboard-step">
+    <h2>Feedback</h2>
+    <form id="feedback-form">
+      <label for="feedback">Share your thoughts or report an issue:</label>
+      <textarea id="feedback" name="feedback" rows="3" style="width:100%;margin-top:6px;"></textarea>
+      <button class="save-btn" type="submit" style="margin-top:0.75rem;">Send Feedback</button>
+    </form>
+  </div>
+  <script>
+    // Load and save settings
+    document.getElementById('settings-form').onsubmit = function(e) {
+      e.preventDefault();
+      const data = {
+        language: document.getElementById('language').value,
+        darkmode: document.getElementById('darkmode').checked,
+        highcontrast: document.getElementById('highcontrast').checked,
+        onboarding: document.getElementById('onboarding').checked
+      };
+      chrome.storage.sync.set(data, () => {
+        alert('Settings saved!');
+      });
+    };
+    // Feedback submission (stub)
+    document.getElementById('feedback-form').onsubmit = function(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('feedback').value;
+      if (feedback.trim().length > 0) {
+        chrome.storage.sync.set({ lastFeedback: feedback }, () => {
+          alert('Thank you for your feedback!');
+          document.getElementById('feedback').value = '';
+        });
+      }
+    };
+    // Load settings on page load
+    window.onload = function() {
+      chrome.storage.sync.get(['language','darkmode','highcontrast','onboarding'], (data) => {
+        if (data.language) document.getElementById('language').value = data.language;
+        if (data.darkmode) document.getElementById('darkmode').checked = data.darkmode;
+        if (data.highcontrast) document.getElementById('highcontrast').checked = data.highcontrast;
+        if (data.onboarding !== undefined) document.getElementById('onboarding').checked = data.onboarding;
+      });
+    };
+  </script>
+</body>
+</html>

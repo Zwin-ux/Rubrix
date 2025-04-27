@@ -1,0 +1,9 @@
+{
+  "extensionName": { "message": "Panel de Calificación AI" },
+  "extensionDescription": { "message": "Califica fácilmente respuestas abiertas de Formularios y Hojas de Google. Impulsado por Gemini. Accesible, seguro y multiplataforma." },
+  "onboardingWelcome": { "message": "¡Bienvenido a AI Form Grader!" },
+  "settingsTitle": { "message": "Configuraciones" },
+  "feedbackTitle": { "message": "Comentarios" },
+  "saveSettings": { "message": "Guardar Configuración" },
+  "sendFeedback": { "message": "Enviar Comentarios" }
+}

@@ -1,0 +1,192 @@
+/* Modern, clean, minimalist UI overhaul for AI Form Grader Dashboard */
+
+body {
+  background: #f7f9fb;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #222;
+  margin: 0;
+}
+
+.app-header {
+  background: #22223b;
+  color: #fff;
+  padding: 1.5rem 2rem 1rem 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(34,34,59,0.05);
+  display: flex;
+  align-items: center;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 90vh;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,34,90,0.08);
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 0 0 270px;
+  background: #f4f5fa;
+  padding: 2rem 1.5rem;
+  border-right: 1px solid #e0e3ef;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.sidebar label,
+.sidebar h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #22223b;
+}
+
+.sidebar input[type="file"],
+.sidebar textarea {
+  width: 100%;
+  margin-bottom: 0.7rem;
+  border-radius: 7px;
+  border: 1px solid #e0e3ef;
+  padding: 0.7rem;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+}
+.sidebar input[type="file"]:focus,
+.sidebar textarea:focus {
+  border: 1.5px solid #4f8cff;
+  outline: none;
+}
+
+.toggle-btn {
+  background: #edf2fb;
+  color: #22223b;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.toggle-btn:hover {
+  background: #4f8cff;
+  color: #fff;
+}
+
+.main-content {
+  flex: 1 1 0%;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.batch-grading {
+  background: #f4f5fa;
+  border-radius: 12px;
+  padding: 1.2rem 2rem 1.5rem 2rem;
+  box-shadow: 0 1px 4px rgba(30,34,90,0.04);
+  margin-bottom: 1.5rem;
+}
+
+.batch-grading h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: #22223b;
+}
+
+.grade-btn {
+  background: linear-gradient(90deg, #4f8cff 0%, #4361ee 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.1rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.13);
+  transition: background 0.2s, transform 0.1s;
+}
+.grade-btn:hover {
+  background: linear-gradient(90deg, #4361ee 0%, #4f8cff 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.export-panel {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+.export-btn {
+  background: #fff;
+  color: #22223b;
+  border: 1px solid #e0e3ef;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+}
+.export-btn:hover {
+  background: #e4eaff;
+  border: 1px solid #4f8cff;
+}
+
+.stats-panel {
+  margin-top: 1.2rem;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  box-shadow: 0 1px 4px rgba(30,34,90,0.04);
+  display: flex;
+  gap: 2.5rem;
+  font-size: 1.1rem;
+}
+
+.results-table {
+  margin-top: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(30,34,90,0.04);
+  overflow-x: auto;
+}
+
+.results-table th, .results-table td {
+  padding: 0.7rem 1.2rem;
+  border-bottom: 1px solid #e0e3ef;
+  font-size: 1rem;
+}
+.results-table th {
+  background: #f4f5fa;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .dashboard-container {
+    flex-direction: column;
+    max-width: 98vw;
+  }
+  .sidebar {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid #e0e3ef;
+    padding: 1.2rem 1rem;
+  }
+  .main-content {
+    padding: 1.2rem 1rem;
+  }
+}

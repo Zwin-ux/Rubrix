@@ -1,0 +1,9 @@
+{
+  "extensionName": { "message": "AI表单评分仪表板" },
+  "extensionDescription": { "message": "轻松批量评分Google表单和表格中的开放式回答。由Gemini驱动。无障碍、安全、跨平台。" },
+  "onboardingWelcome": { "message": "欢迎使用AI Form Grader！" },
+  "settingsTitle": { "message": "设置" },
+  "feedbackTitle": { "message": "反馈" },
+  "saveSettings": { "message": "保存设置" },
+  "sendFeedback": { "message": "发送反馈" }
+}

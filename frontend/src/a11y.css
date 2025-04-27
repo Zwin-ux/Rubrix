@@ -1,0 +1,32 @@
+/* Focus ring for keyboard navigation */
+:focus {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px;
+}
+
+/* High contrast mode */
+body.high-contrast, .high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast button, .high-contrast input, .high-contrast textarea {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #fff !important;
+}
+
+/* Skip link styling */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: #005fcc;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  border-radius: 4px;
+}
+.skip-link:focus {
+  left: 8px;
+}

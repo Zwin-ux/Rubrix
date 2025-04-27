@@ -1,0 +1,9 @@
+{
+  "extensionName": { "message": "<Your Product Name>" },
+  "extensionDescription": { "message": "<Product description for translators>" },
+  "onboardingWelcome": { "message": "<Welcome message>" },
+  "settingsTitle": { "message": "<Settings>" },
+  "feedbackTitle": { "message": "<Feedback>" },
+  "saveSettings": { "message": "<Save Settings>" },
+  "sendFeedback": { "message": "<Send Feedback>" }
+}

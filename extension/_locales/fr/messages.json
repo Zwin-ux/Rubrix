@@ -1,0 +1,9 @@
+{
+  "extensionName": { "message": "Tableau de Bord de Correction IA" },
+  "extensionDescription": { "message": "Évaluez facilement les réponses ouvertes des formulaires et feuilles Google. Propulsé par Gemini. Accessible, sécurisé et multiplateforme." },
+  "onboardingWelcome": { "message": "Bienvenue sur AI Form Grader!" },
+  "settingsTitle": { "message": "Paramètres" },
+  "feedbackTitle": { "message": "Retour" },
+  "saveSettings": { "message": "Enregistrer les paramètres" },
+  "sendFeedback": { "message": "Envoyer un retour" }
+}

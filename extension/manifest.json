@@ -1,0 +1,82 @@
+{
+  "manifest_version": 3,
+  "name": "AI Form Grader Dashboard",
+  "short_name": "AI Grader",
+  "description": "Seamlessly grade open-ended responses from Google Forms, Sheets, and more. Powered by Gemini. Accessible, secure, and cross-platform.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://docs.google.com/forms/*",
+    "https://docs.google.com/spreadsheets/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/forms/*",
+        "https://docs.google.com/spreadsheets/*"
+      ],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icon16.png", "icon32.png", "icon48.png", "icon128.png",
+        "frontend/build/static/js/main.c539af0b.js",
+        "frontend/build/static/css/main.4ac17dc1.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+G",
+        "mac": "Command+Shift+G"
+      },
+      "description": "Toggle AI Form Grader Sidebar"
+    }
+  },
+  "author": "Your Team or Organization Name",
+  "homepage_url": "https://github.com/your-org/ai-form-grader",
+  "accessibility": {
+    "features": [
+      "Full keyboard navigation",
+      "ARIA roles and live regions",
+      "High contrast and large text modes",
+      "Screen reader support"
+    ]
+  },
+  "default_locale": "en",
+  "incognito": "split",
+  "optional_permissions": ["notifications"],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "description_i18n": "__MSG_extensionDescription__"
+}

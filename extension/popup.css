@@ -1,0 +1,200 @@
+/* Extension Popup: Modern, clean, minimalist style */
+body {
+  background: #f7f9fb;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #22223b;
+  margin: 0;
+  min-width: 420px;
+  min-height: 600px;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.darkmode {
+  background: #23243a;
+  color: #f7f9fb;
+}
+
+body.darkmode .dashboard-container,
+body.darkmode .batch-grading, 
+body.darkmode .export-panel, 
+body.darkmode .stats-panel, 
+body.darkmode .results-table {
+  background: #2e3056;
+  color: #f7f9fb;
+  box-shadow: 0 2px 12px rgba(30,34,90,0.18);
+}
+body.darkmode .sidebar {
+  background: #23243a;
+  border-right: 1px solid #35365a;
+}
+body.darkmode .app-header {
+  background: #18192b;
+  color: #fff;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.export-btn, .grade-btn, .toggle-btn {
+  background: #edf2fb;
+  color: #22223b;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 0.3rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+}
+.export-btn:focus, .grade-btn:focus, .toggle-btn:focus {
+  box-shadow: 0 0 0 3px #4f8cff55;
+  outline: none;
+}
+.export-btn:hover, .grade-btn:hover, .toggle-btn:hover {
+  background: #4f8cff;
+  color: #fff;
+}
+.export-btn:active, .grade-btn:active, .toggle-btn:active {
+  animation: pulse 0.18s;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  60% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+/* Panel fade-in */
+.batch-grading, .export-panel, .stats-panel, .results-table {
+  background: #f4f5fa;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 1px 4px rgba(30,34,90,0.04);
+  animation: fadeIn 0.5s ease-in;
+}
+
+@media (max-width: 600px) {
+  body, #root {
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  .dashboard-container {
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  .sidebar {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid #e0e3ef;
+    padding: 0.7rem 0.5rem;
+  }
+  .main-content {
+    padding: 0.7rem 0.5rem;
+  }
+}
+
+
+#root {
+  min-width: 420px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: #22223b;
+  color: #fff;
+  padding: 1.2rem 1.5rem 1rem 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(34,34,59,0.05);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-container {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(30,34,90,0.08);
+  margin: 0.5rem;
+  min-height: 550px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 0 0 140px;
+  background: #f4f5fa;
+  padding: 1.1rem 0.7rem;
+  border-right: 1px solid #e0e3ef;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.main-content {
+  flex: 1 1 0%;
+  padding: 1.5rem 1.2rem 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.batch-grading, .export-panel, .stats-panel, .results-table {
+  background: #f4f5fa;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 1px 4px rgba(30,34,90,0.04);
+}
+
+.batch-grading {
+  margin-top: 0.2rem;
+}
+
+.export-btn, .grade-btn, .toggle-btn {
+  background: #edf2fb;
+  color: #22223b;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 0.3rem;
+  transition: background 0.2s, color 0.2s;
+}
+.export-btn:hover, .grade-btn:hover, .toggle-btn:hover {
+  background: #4f8cff;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  body, #root {
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  .dashboard-container {
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  .sidebar {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid #e0e3ef;
+    padding: 0.7rem 0.5rem;
+  }
+  .main-content {
+    padding: 0.7rem 0.5rem;
+  }
+}

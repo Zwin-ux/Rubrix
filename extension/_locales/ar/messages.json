@@ -1,0 +1,9 @@
+{
+  "extensionName": { "message": "لوحة تقييم الذكاء الاصطناعي" },
+  "extensionDescription": { "message": "قيّم الإجابات المفتوحة من نماذج وجداول بيانات Google بسهولة. مدعوم من Gemini. متاح، آمن ومتعدد المنصات." },
+  "onboardingWelcome": { "message": "مرحبًا بك في AI Form Grader!" },
+  "settingsTitle": { "message": "الإعدادات" },
+  "feedbackTitle": { "message": "ملاحظات" },
+  "saveSettings": { "message": "حفظ الإعدادات" },
+  "sendFeedback": { "message": "إرسال الملاحظات" }
+}

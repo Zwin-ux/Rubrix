@@ -1,0 +1,9 @@
+{
+  "extensionName": { "message": "AI Form Grader Dashboard" },
+  "extensionDescription": { "message": "Seamlessly grade open-ended responses from Google Forms, Sheets, and more. Powered by Gemini. Accessible, secure, and cross-platform." },
+  "onboardingWelcome": { "message": "Welcome to AI Form Grader!" },
+  "settingsTitle": { "message": "Settings" },
+  "feedbackTitle": { "message": "Feedback" },
+  "saveSettings": { "message": "Save Settings" },
+  "sendFeedback": { "message": "Send Feedback" }
+}
