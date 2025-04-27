@@ -1,19 +1,7 @@
-# AI Form Grader Dashboard (Modular, Translatable)
+# AI Form Grader Dashboard
 
-An accessible, dynamic dashboard for grading open-ended form responses (Google Forms, Typeform, CSV, etc.) using AI and flexible rubrics.
+An accessible, dynamic dashboard for grading open-ended form responses (Google Forms, Typeform, CSV, etc.) using AI and a flexible rubrics, this tool will be used for ech omarkets for graading.
 
----
-
-## Features
-- Drag-and-drop or upload form responses
-- Rubric management and multi-criteria grading
-- AI-powered batch grading with override controls
-- Accessible dashboard: keyboard, screen reader, high-contrast, etc.
-- Export to CSV/JSON and Google Sheets integration
-- **Fully modular and product-agnostic core logic**
-- **Internationalization (i18n) ready with easy translation**
-
----
 
 ## Project Structure
 - `backend/` - Node.js/Express API server
