@@ -7,6 +7,47 @@ body {
   margin: 0;
 }
 
+/* Star Wars Mode Theme */
+.starwars-bg {
+  background: #000 !important;
+  background-image: repeating-radial-gradient(circle at 20% 30%, #fff8 1px, transparent 2px),
+    repeating-radial-gradient(circle at 60% 70%, #ffe81f88 1px, transparent 3px);
+  animation: starfield 40s linear infinite;
+}
+@keyframes starfield {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 1000px 1000px, 2000px 2000px; }
+}
+
+.starwars-header {
+  color: #ffe81f !important;
+  text-shadow: 0 0 16px #ffe81f, 0 0 8px #fff;
+  letter-spacing: 0.07em;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  background: #111 !important;
+  border-bottom: 3px solid #ffe81f;
+}
+
+.starwars-toggle {
+  background: #ffe81f !important;
+  color: #222 !important;
+  border: 2px solid #ffe81f !important;
+  box-shadow: 0 0 8px 2px #ffe81f55;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+}
+.starwars-toggle.active {
+  background: #222 !important;
+  color: #ffe81f !important;
+  border: 2px solid #ffe81f !important;
+  box-shadow: 0 0 16px 4px #ffe81faa;
+}
+.starwars-toggle:hover {
+  background: #ffe81fdd !important;
+  color: #111 !important;
+  box-shadow: 0 0 24px 8px #ffe81f77;
+}
+
 .app-header {
   background: #22223b;
   color: #fff;

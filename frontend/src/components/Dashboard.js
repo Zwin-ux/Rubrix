@@ -50,6 +50,8 @@ import BatchGradingControls from './BatchGradingControls';
 import ExportPanel from './ExportPanel';
 import StatsPanel from './StatsPanel';
 import AccessibilitySettings from './AccessibilitySettings';
+import StarWarsToggle from './StarWarsToggle';
+const { starWarsFormat } = require('../../core/starwars');
 
 async function gradeAllResponses(responses, rubric, apiKey) {
   // Call backend for each response (in parallel for speed)
@@ -71,6 +73,28 @@ async function gradeAllResponses(responses, rubric, apiKey) {
 }
 
 function Dashboard() {
+  const [starWarsMode, setStarWarsMode] = useState(false);
+  const [mayFourth, setMayFourth] = useState(false);
+
+  // Main state (declare only once)
+  const [questions, setQuestions] = useState([]); // array of question strings
+  const [responses, setResponses] = useState([]); // { user, answers: { [question]: answer } }
+  const [rubrics, setRubrics] = useState({}); // { [question]: rubric }
+  const [results, setResults] = useState([]); // [{ user, scores: { [question]: { score, feedback, overridden } } }]
+  const [grading, setGrading] = useState(false);
+  const [gradeError, setGradeError] = useState('');
+  const [stats, setStats] = useState({ average: null, distribution: {}, flagged: 0 });
+  const [settings, setSettings] = useState({ language: 'en', darkmode: false, highcontrast: false, onboarding: true });
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
+  // Auto-enable Star Wars mode or greeting on May 4th
+  useEffect(() => {
+    const now = new Date();
+    if (now.getMonth() === 4 && now.getDate() === 4) {
+      setMayFourth(true);
+      setStarWarsMode(true);
+    }
+  }, []);
   const [questions, setQuestions] = useState([]); // array of question strings
   const [responses, setResponses] = useState([]); // { user, answers: { [question]: answer } }
   const [rubrics, setRubrics] = useState({}); // { [question]: rubric }
@@ -236,8 +260,16 @@ function Dashboard() {
   };
 
   return (
-    <div className="dashboard-container">
+    <div className={"dashboard-container" + (starWarsMode ? " starwars-bg" : "") }>
       <aside className="sidebar">
+        <div style={{ marginBottom: 12 }}>
+          <StarWarsToggle enabled={starWarsMode} onToggle={() => setStarWarsMode(sw => !sw)} />
+          {mayFourth && (
+            <div style={{ color: '#ffe81f', fontWeight: 'bold', margin: '8px 0 0 0', textShadow: '0 0 4px #222' }}>
+              May the Fourth be with you!
+            </div>
+          )}
+        </div>
         <div>
           <label htmlFor="import-responses"><b>Import Responses</b></label>
           <ImportPanel onImport={handleImport} />
@@ -250,6 +282,9 @@ function Dashboard() {
         </div>
       </aside>
       <section className="main-content">
+        <header className={starWarsMode ? "app-header starwars-header" : "app-header"}>
+          {starWarsMode ? 'AI Form Grader: Star Wars Mode' : 'AI Form Grader Dashboard'}
+        </header>
         <div className="batch-grading">
           <BatchGradingControls
             onGradeAll={handleGradeAll}
@@ -269,7 +304,17 @@ function Dashboard() {
           <StatsPanel stats={stats} />
         </div>
         <div className="results-table">
-          <ResultsTable questions={questions} responses={responses} results={results} onOverride={handleOverride} />
+          <ResultsTable questions={questions} responses={responses} results={starWarsMode ? results.map(row => ({
+            ...row,
+            scores: Object.fromEntries(Object.entries(row.scores).map(([q, s]) => ({
+              key: q,
+              value: {
+                ...s,
+                feedback: starWarsFormat(s.feedback || '', { emoji: true }),
+                score: s.score !== '' && !isNaN(Number(s.score)) ? starWarsFormat(`${s.score}`, {}) : s.score
+              }
+            })).map(({key, value}) => [key, value]))
+          })) : results} onOverride={handleOverride} />
         </div>
       </section>
     </div>
