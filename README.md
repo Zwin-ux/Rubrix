@@ -1,6 +1,11 @@
-# AI Form Grader Dashboard
+# AI Form Grader & Auto-Format AI
 
-An accessible, dynamic dashboard for grading open-ended form responses (Google Forms, Typeform, CSV, etc.) using AI and a flexible rubrics, this tool will be used for ech omarkets for graading.
+This project combines two powerful tools:
+
+1. **AI Form Grader** - An accessible dashboard for grading open-ended form responses with AI and flexible rubrics
+2. **Auto-Format AI** - Chrome extension for clean, structured formatting of text across emails, notes, comments, and code
+
+Both share a common core for text analysis, formatting, and AI-powered transformations.
 
 
 ## Project Structure
