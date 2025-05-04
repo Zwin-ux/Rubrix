@@ -1,5 +1,7 @@
 # AI Form Grader & Auto-Format AI
 
+ALL WILL BE USED FOR ECHO MARKETS ALSO AT SOME POINT
+
 This project combines two powerful tools:
 
 1. **AI Form Grader** - An accessible dashboard for grading open-ended form responses with AI and flexible rubrics
